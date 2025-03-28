@@ -4,6 +4,14 @@
 
 Głównym celem projektu jest stworzenie prostej aplikacji mobilnej do nauki fiszek.
 
+Dokumentację API można znaleźć pod linkiem: https://w2025-demo.deployed.space/api/docs/
+
+Design aplikacji dostępny jest na Figmie: https://www.figma.com/design/ENUxCgDLMl0fnwbr4FdQku/Makiety-warsztaty
+
+Gotowa wersja aplikacji webowej dostępna jest pod adresem: https://w2025-demo.deployed.space
+
+Gotowa wersja aplikacji mobilnej: https://github.com/deployed/flashcards-workshop-mobile
+
 ## Technologie
 
 - React Native
