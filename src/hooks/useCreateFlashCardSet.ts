@@ -10,12 +10,14 @@ export function useCreateFlashCardSet() {
   const router = useRouter();
 
   return useMutation({
-    mutationFn: (title: string) => {
-      return createFlashCardSet(title);
+    mutationFn: async (title: string) => {
+      return await createFlashCardSet(title);
+      // return true;
     },
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: queryKeys.sets() });
-      router.navigate(`/create/${data.id}`);
+      router.navigate(`/create?id=${data.id}`);
+      // router.navigate(`/create/${data.id}`);
     },
     onError: (error) => {
       console.error('Mutation failed with error:', error);

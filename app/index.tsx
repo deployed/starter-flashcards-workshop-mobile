@@ -1,21 +1,23 @@
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { BackgroundContainer, Button, Popup, Typography } from '@/components';
+import { useCreateFlashCardSet } from '@/hooks';
+
 import LogoIcon from '../assets/svgs/logo.svg';
-import { useState } from 'react';
-import { useCreateFlashCardSet} from '@/hooks';
 
 export default function Index() {
   const { t } = useTranslation();
-  // const router = useRouter();
+  const router = useRouter();
   const [popupVisible, setPopupVisible] = useState(false);
   const { mutate } = useCreateFlashCardSet();
 
   const handleCreateFlashCards = () => {
-      setPopupVisible(true)
-  }
+    setPopupVisible(true);
+  };
 
   const handleSave = (name: string) => {
     if (!name.trim()) {
@@ -26,15 +28,10 @@ export default function Index() {
     mutate(name);
   };
 
-
   return (
     <BackgroundContainer imagePath={require('../assets/images/home.png')}>
       <View style={styles.innerContainer}>
-      <Popup
-        visible={popupVisible}
-        onClose={() => setPopupVisible(false)}
-        onSave={handleSave}
-      />
+        <Popup visible={popupVisible} onClose={() => setPopupVisible(false)} onSave={handleSave} />
         <LogoIcon />
         <View style={styles.content}>
           <Typography>{t('home.createFlashcards')}</Typography>
@@ -53,8 +50,8 @@ const styles = StyleSheet.create({
     paddingVertical: 100,
   },
   content: {
-    rowGap: 10, 
-    marginBottom: 10, 
+    rowGap: 10,
+    marginBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
