@@ -1,12 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 
+// import {fetchFlashCardSets} from "@/api/challenges";
+
 export function useChallenge() {
   const router = useRouter();
 
   return useMutation({
     mutationFn: async (data) => {
-      // Tu dodaj logikę mutacji, np. wywołanie API
+      // const cardSets = fetchFlashCardSets()
+      //
+      // console.log(cardSets)
+
       return Promise.resolve(data);
     },
     onSuccess: () => {
